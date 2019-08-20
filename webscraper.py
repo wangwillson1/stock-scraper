@@ -14,12 +14,15 @@ page_soup = soup(page_html, "html.parser")
 # Finding desired content
 containers = page_soup.findAll("div", {"class":"item-container"})
 
+# Creating files
 filename = "products.csv"
 f = open(filename, "w")
 
 headers = "brand, title, total_price, old_price, percent_saved, ship_cost\n"
 f.write(headers)
 
+
+# --------------------------- FUNCTIONS ---------------------------
 # Find elements with classes function
 def findClass(contain, elem, class_name, index):
     return contain.findAll(elem, {"class": class_name})[index]
@@ -35,7 +38,8 @@ def totalPrice(contain):
 def percentageDifference(new, old):
     return ( (new - old) / old ) * 100
 
-# Loop through all containers
+
+# --------------------------- MAIN LOOP ---------------------------
 for container in containers:
     brand = findClass(container, "a", "item-title", 0).text.split()[0]
     title = findClass(container, "a", "item-title", 0).text.replace(",", "|")
