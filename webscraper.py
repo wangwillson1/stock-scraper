@@ -3,7 +3,7 @@ from urllib.request import urlopen as urlReq
 from bs4 import BeautifulSoup as soup
 
 # Setting URL variables
-test_url = 'https://www.newegg.ca/LCD-LED-Monitors/SubCategory/ID-20?Tid=166428'
+test_url = 'https://www.newegg.ca/Cell-Phones-Unlocked/SubCategory/ID-2961?Tid=165973'
 urlClient = urlReq(test_url)
 page_html = urlClient.read()
 urlClient.close()
