@@ -5,14 +5,14 @@ from bs4 import BeautifulSoup as soup
 from time import sleep
 from twilio.rest import Client
 
-# Setting URL variables
-page_url = 'https://finance.yahoo.com/quote/FB?p=FB'
-urlClient = urlReq(page_url)
-page_html = urlClient.read()
-urlClient.close()
-
 # Function to grab prices
 def getPrice():
+    # Setting URL variables
+    page_url = 'https://finance.yahoo.com/quote/FB?p=FB'
+    urlClient = urlReq(page_url)
+    page_html = urlClient.read()
+    urlClient.close()
+    
     # Parsing HTML
     page_soup = soup(page_html, "html.parser")
 
