@@ -1,6 +1,7 @@
 # Importing files for web scraping
 from urllib.request import urlopen as urlReq
 from bs4 import BeautifulSoup as soup
+from time import sleep
 
 # Setting URL variables
 page_url = 'https://finance.yahoo.com/quote/FB?p=FB'
@@ -20,3 +21,4 @@ def parsePrice():
 # Infinite loop to grab prices in real time
 while True:
     print('The current price is: ' + str(parsePrice()))
+    sleep(10)
